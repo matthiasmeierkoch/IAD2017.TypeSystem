@@ -1,0 +1,15 @@
+$base-font-size: 16px;
+$font-scale: 1.41421356237;
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: $base-font-size;
+}
+
+h1 {
+  font-size: 1rem * $font-scale * $font-scale;
+}
+
+h2 {
+  font-size: 1rem * $font-scale;
+}
