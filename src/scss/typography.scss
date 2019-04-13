@@ -1,5 +1,14 @@
+:root {
+  --primary-color: #468faa;
+  --col-gutter: 2%;
+  --row-count: 2;
+  --col-breite: calc((100% / var(--row-count)) - ((var(--col-gutter) / var(--row-count)) * (var(--row-count) - 1)));
+}
+
 $base-font-size: 16px;
 $font-scale: 1.41421356237;
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
 
 html {
   font-family: 'Open Sans', sans-serif;
@@ -8,8 +17,244 @@ html {
 
 h1 {
   font-size: 1rem * $font-scale * $font-scale;
+  font-family: 'Merriweather', serif;
 }
 
 h2 {
   font-size: 1rem * $font-scale;
+  font-family: 'Merriweather', serif;
+}
+
+p {
+  font-size: calc(0.5rem + 2vw);
+}
+
+h1, h3 {
+  color: var(--primary-color);
+}
+
+hr {
+  border: 0;
+  height: 2rem;
+  background-color: var(--primary-color);
+}
+
+.sectiontitle {
+  margin-top: 4rem;
+  text-decoration-color: yellow;
+  border-bottom: 20px solid yellow;
+  width: 50%;
+}
+
+.headings {
+  background-color: aliceblue;
+  padding: 1rem;
+}
+
+.colum {
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.wordA {
+  font-weight: 700;
+  font-size: 53vw;
+  line-height: 1;
+  margin: 0;
+  margin-left: 0rem;
+}
+
+.wordB {
+  font-size: 16vw;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 0;
+  margin-left: 0rem;
+}
+
+.youtube {
+  position: relative;
+  padding-bottom: calc(100% / 16 * 9);
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.responsive-container {
+  position: relative;
+  padding-bottom: 100%; // hier die Proportion zur Breite
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.responsive-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.box-out {
+  position: relative;
+  padding-bottom: 100%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.box-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (min-width: 850px) {
+  .wordA {
+    font-size: 26.8rem;
+  }
+  .wordB {
+    font-size: 8.1rem;
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  p {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+}
+
+// Flexbox
+.container-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container-item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: var(--col-breite);
+  max-width: var(--col-breite);
+  background-color: var(--primary-color);
+  height: 15%;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+@media only screen and (min-width: 500px) {
+
+  :root {
+    --row-count: 4;
+  }
+}
+
+// CSS Grid
+.container-grid-x {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 3%;
+  grid-template-rows: repeat(12, 1fr);
+  grid-row-gap: 3%;
+  height: 100%;
+  color: white;
+  text-align: center;
+  grid-auto-flow: dense;
+  margin-top: 1rem;
+}
+
+.container-item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 22.75%;
+  max-width: 22.75%;
+}
+
+.column-1to3 {
+  grid-column-start: 1;
+  grid-column-end: span 3;
+  background-color: black;
+  padding-top: 1rem;
+}
+
+.column-1to3.top {
+  grid-row-start: 1;
+  grid-row-end: span 3;
+  background-color: black;
+  padding-top: 1rem;
+}
+
+.column-1to3.bottom {
+  grid-row-start: 4;
+  grid-row-end: span 3;
+  background-color: black;
+  padding-top: 1rem;
+}
+
+.column-4to12 {
+  grid-column-start: 4;
+  grid-column-end: span 9;
+  background-color: darkblue;
+  padding-top: 10%;
+}
+
+.column-4to12.full {
+  grid-row-start: 1;
+  grid-row-end: span 6;
+  background-color: darkblue;
+  padding-top: 1rem;
+}
+
+.column-1to9 {
+  grid-column-start: 1;
+  grid-column-end: span 9;
+  background-color: darkblue;
+  padding-top: 1rem;
+}
+
+.column-1to9.bottom {
+  grid-row-start: 7;
+  grid-row-end: span 6;
+  background-color: darkblue;
+  padding-top: 1rem;
+}
+
+.column-10to12 {
+  grid-column-start: 10;
+  grid-column-end: span 3;
+  background-color: black;
+  padding-top: 1rem;
+}
+
+.column-10to12.top {
+  grid-row-start: 7;
+  grid-row-end: span 3;
+  background-color: black;
+  padding-top: 1rem;
+}
+
+.column-10to12.bottom {
+  grid-row-start: 10;
+  grid-row-end: span 3;
+  background-color: black;
+  padding-top: 1rem;
+}
+
+.card-2-4 {
+  grid-row: span 4;
+  grid-column: span 2;
+  background-color: darkblue;
+  padding-top: 1rem;
+}
+
+.card-4-2 {
+  grid-row: span 2;
+  grid-column: span 4;
+  background-color: black;
+  padding-top: 1rem;
 }
