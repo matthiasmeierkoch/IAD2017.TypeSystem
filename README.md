@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/087366d3-6dfd-450c-aa81-29d7fd767fb4/deploy-status)](https://app.netlify.com/sites/adoring-borg-73312d/deploys)
+
 # Typografische Systeme
 
 ## Ausfühurng
